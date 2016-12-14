@@ -1,7 +1,8 @@
 # DynRuby
 
 DynRuby is a simple JavaScript plugin that creates dynamic ruby annotations,
-displayed on hover.
+displayed on hover. Click [here](http://www.xuanruiqi.com/dynruby/index.html)
+for a demo!
 
 ## Author
 Xuanrui Qi ([me@xuanruiqi.com](me@xuanruiqi.com))
@@ -21,4 +22,4 @@ MIT License. See "LICENSE" file for details.
 ```html
 <ruby class="dyn-ruby" data-annotation="ふりがな">振り仮名</ruby>
 ```
-For a detailed usage guide, see the demo.
+For a detailed usage guide, see the [demo](http://www.xuanruiqi.com/dynruby/index.html).
