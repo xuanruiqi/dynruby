@@ -1,36 +1,66 @@
 <!--
-   - Copyright(c) 2016 Xuanrui Qi
+   - Copyright(c) 2017 Xuanrui Qi
 -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DynRuby</title>
+  <title>DynRuby 2</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-  <script src="dyn-ruby.js"></script>
-  <style>body {font-family: 'Noto Sans', sans-serif; font-size: 14pt}</style>
+  <script src="dyn-ruby-2.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="navbar navbar-default">
     <div class="container">
-      <header class="navbar-header"><a href="#" class="navbar-brand">DynRuby</a></header>
+      <header class="navbar-header"><a href="#" class="navbar-brand">DynRuby 2</a></header>
     </div>
   </nav>
   <div class="container">
 
-    
+
+
+    <p class="ruby-block">
+      DynRuby 2 provides "smart" ruby annotations that are displayed on hover, and works with any browser with support for ruby annotations.
+      DynRuby is designed for displaying Furigana (振){ふ}り(仮名){がな} annotations for Japanese Kanji (漢字){かんじ},
+      but can also be used with Chinese to display phonetic notations with Hanyu Pinyin (汉语拼音){hàn yǔ pīn yīn} or Bopomofo/Zhuyin Fuhao
+      (注音符號){ㄓㄨˋ一ㄣㄈㄨˊㄏㄠˋ}.
+    </p><br>
 
     <p>
-      DynRuby provides "smart" ruby annotations that are displayed on hover, and works with any browser with support for ruby annotations.
-      DynRuby is designed for displaying Furigana <ruby class="dyn-ruby" data-annotation="フリガナ">振り仮名</ruby> annotations for Japanese Kanji <ruby class="dyn-ruby" data-annotation="カンジ">漢字</ruby>,
-      but can also be used with Chinese to display phonetic notations with Hanyu Pinyin <ruby class="dyn-ruby" data-annotation="hàn yǔ pīn yīn">汉语拼音</ruby> or Bopomofo/Zhuyin Fuhao
-      <ruby class="dyn-ruby" data-annotation="ㄓㄨˋ一ㄣㄈㄨˊㄏㄠˋ">注音符號</ruby>. Note that Zhuyin Fuhao are usually displayed vertically, and might not be
-      displayed correctly if rendered horizontally. 
+      To use DynRuby 2.0, simply enclose all annotated text in an element with the class
+      <code class="language-html" data-lang="html">.ruby-block</code>. Then, for each annotated
+      character or sequence of characters:
+      <ul>
+          <li>if on-hover annotations are desired, use （） or () to enclose annotated characters;</li>
+          <li>if persistent annotations are desired, use [], ＜＞, 〈〉 or 【】 to enclose
+              annotated characters;</li>
+          <li>use {} or ｛｝ to  enclose annotations.
+      </ul>
+      For example, <code class="language-html" data-lang="html">(夢){ゆめ}</code> and
+      <code class="language-html" data-lang="html">〈爱〉｛ài｝</code> are valid DynRuby 2 annotations.
+    </p><br>
+
+    <p>
+      There are, however, two technical limitations at the moment:
+      <ul>
+          <li>Zhuyin Fuhao (Bopomofo) are usually displayed vertically, and might not be
+              displayed correctly if rendered horizontally</li>
+          <li>The base text could only contain Chinese characters (CJK unified ideographs),
+              Japanese Hiragana and Katakana, the repetition mark (々), and standard (English)
+              Latin chracters and numbers. Other CJK characters are not recognized by the regex.</li>
+      </ul>
+    </p><br>
+
+    <p>
+      The original DynRuby has a more verbose syntax, but it uses only standard HTML tags. For developers
+      interested in customizing DynRuby, the original DynRuby might be more interesting. The page for
+      the original DynRuby is <a href="index-old.html">here</a>.
     </p><br>
 
     <p>
@@ -43,41 +73,36 @@
       <a class="github-button" href="https://github.com/xuanruiqi/dynruby/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/xuanruiqi/dynruby/network" data-count-api="/repos/xuanruiqi/dynruby#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork xuanruiqi/dynruby on GitHub">Fork</a>
     </p><br>
 
-    <div id="koi-ing" class="panel panel-default">
+    <div id="just-be-yourself" class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">from <a href="https://www.youtube.com/watch?v=b326lIBoaP8"><ruby class="dyn-ruby" data-annotation="こい">恋</ruby>ING</a>
-        by Morning Musume (モーニング<ruby class="dyn-ruby" data-annotation="むすめ">娘</ruby>。)</h3>
+        <h3 class="panel-title">from <a href="https://www.youtube.com/watch?v=WyuKTDIDNYQ">"Just be yourself"</a>
+        by The World Standard (わーすた)</h3>
       </div>
-      <div class="panel-body">
-        いつまでも　<ruby class="dyn-ruby" data-annotation="ふたり">二人</ruby>でいたい<br>
-        パンが<ruby class="dyn-ruby" data-annotation="ひと">１</ruby>つなら　わけわけね<br>
-        また　<ruby class="dyn-ruby" data-annotation="じっさい">実際</ruby>　<ruby class="dyn-ruby" data-annotation="か">駆</ruby>け<ruby class="dyn-ruby" data-annotation="だ">出</ruby>しね<br>
-        <ruby class="dyn-ruby" data-annotation="すべ">全</ruby>ての　<ruby class="dyn-ruby" data-annotation="はじ">始</ruby>まりね<br>
-        <ruby class="dyn-ruby" data-annotation="れんあい">恋愛</ruby>　<ruby class="dyn-ruby" data-annotation="しんこうけい">進行形</ruby><br>
-        <small><a class="show-dyn-ruby" href="#">Show all annotations</a> <a class="hide-dyn-ruby" href="#">Hide all annotations</a></small>
+      <div class="panel-body ruby-block">
+        ゆめゆめ パステル (時間){じかん}の[宝石箱]{ほうせきはこ}<br>
+        カワイイと[虹]{にじ}のドキドキ[詰]{つ}め(込){こ}んで<br>
+        (10){じゅう}(年){ねん}(後){ご} (30){さんじゅう}(年){ねん}(後){ご} [過去]{かこ}になった“イマ”を<br>
+        (笑顔){えがお}でね、(思){おも}い(出){だ}そうよ！<br>
+        (輝){かがや}いて プリパラ<br>
+        <small><a class="show-dyn-ruby" href="#">Show all annotations</a> | <a class="hide-dyn-ruby" href="#">Hide all annotations</a></small>
       </div>
     </div>
 
     <p>
-      How do you use DynRuby in your own HTML? Just write: <pre><code class="language-html" data-lang="html">&lt;ruby class="dyn-ruby" data-annotation="カン"&gt;漢&lt;/ruby&gt;</code></pre>
-      and you would get: <ruby class="dyn-ruby" data-annotation="カン">漢</ruby>!
-    </p><br>
-
-    <p>
-      I also provided two "magic links" that displays/hides all DynRuby annotations on click. Once they are displayed this way, 
+      I also provided two "magic links" that displays/hides all DynRuby annotations on click. Once they are displayed this way,
       they do not respond to hover anymore (until they are hidden by the "hide" link):<br>
       "Show: <code class="language-html" data-lang="html">&lt;a class="show-dyn-ruby" href="#"&gt;Text here&lt;/a&gt;</code>.<br>
       "Hide": <code class="language-html" data-lang="html">&lt;a class="hide-dyn-ruby" href="#"&gt;Text here&lt;/a&gt;</code>.
     </p><br>
-    
+
     <p>
-      Of course, don't forget <code class="language-html" data-lang="html">&lt;script src="https://raw.githubusercontent.com/xuanruiqi/dynruby/master/dyn-ruby.js"&gt;&lt;/script&gt;</code>.
+      Of course, don't forget <code class="language-html" data-lang="html">&lt;script src="https://raw.githubusercontent.com/xuanruiqi/dynruby/master/dyn-ruby-2.js"&gt;&lt;/script&gt;</code>.
       DynRuby relies on jQuery, so also make sure that you have included jQuery.
     </p><br>
 
     <footer class="footer">
       <p>
-        <a href="http://www.xuanruiqi.com">Xuanrui Qi</a> © 2016, all rights reserved.<br>
+        <a href="http://www.xuanruiqi.com">Xuanrui Qi</a> © 2017, all rights reserved.<br>
         Licensed under the <a href="https://github.com/xuanruiqi/dynruby/blob/master/LICENSE">MIT License</a>.
       </p>
     </footer>
