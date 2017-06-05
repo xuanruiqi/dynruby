@@ -28,3 +28,6 @@ For a detailed usage guide, see the [demo](http://www.xuanruiqi.com/dynruby/inde
 The original DynRuby uses a more verbose syntax, but is useful for developers who
 want to customize DynRuby. The page for the original DynRuby is
 [here](http://www.xuanruiqi.com/dynruby/index-old.html).
+
+## Credit
+DynRuby 2.0 is inspired by the [Japanese Language Stack Exchange](https://japanese.stackexchange.com/) *furigana* extension. 

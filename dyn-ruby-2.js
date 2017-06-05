@@ -5,6 +5,7 @@
 'use strict';
 
 let DYN_ANNO_RE = /[（(]([0-9a-zA-Z\u4e00-\u9fff\u3040-\u30ff\u3005]+)[）)][{｛]([^}｝]+)[}｝]/g;
+let SIMPLE_ANNO_RE = /([\u4e00-\u9fff\u3005]+)[{｛]([^}｝]+)[}｝]/g;
 let PERSISTENT_ANNO_RE = /[\[＜〈【]([0-9a-zA-Z\u4e00-\u9fff\u3040-\u30ff\u3005]+)[\]＞〉】][{｛]([^}｝]+)[}｝]/g;
 
 function findRubyBlocks()
@@ -20,6 +21,7 @@ function convertRegex()
         console.log(innerText);
         $(ruby).html(
             innerText.replace(DYN_ANNO_RE, '<ruby class="dyn-ruby" data-annotation="$2">$1</ruby>')
+                     .replace(SIMPLE_ANNO_RE, '<ruby class="dyn-ruby" data-annotation="$2">$1</ruby>')
                      .replace(PERSISTENT_ANNO_RE, '<ruby class="dyn-ruby-p" data-annotation="$2">$1</ruby>')
         );
     }
